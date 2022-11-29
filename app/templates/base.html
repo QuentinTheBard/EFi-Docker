@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/blog.ico')}}" type="image/x-icon">
+    
+    <title>{% block title %}{% endblock %}- EpicBlogSpot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    <header class="header">
+        <div class="nav">
+                <div>
+                <a href="{{ url_for('index') }}">
+                <h1>EpicBlogSpot</h1>  
+                </a>
+            </div>
+            <nav>
+                <a href="{{url_for('index')}} ">Inicio</a>
+                {% if g.user %}
+                <img src="{{ url_for('static', filename='img/usuario.png')}}" alt="">
+                <span>{{ g.user.username }}</span>
+                <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+                {% else %}
+                <a href="{{ url_for('register') }}">Registrarse</a>
+                <a href="{{ url_for('login') }}">Iniciar Sesión</a>
+                {% endif %}
+            </nav>
+        </div>
+        
+    </header>
+
+    <section>
+        <div class="content">
+            <header>{% block header %}{% endblock %}</header>
+
+            {% for message in get_flashed_messages() %}
+            <div class="flash"> {{ message }}</div>
+            {% endfor %}
+
+            {% block content %}{% endblock %}
+        </div>
+        
+    </section>
+</body>
+</html>

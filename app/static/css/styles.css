@@ -1,0 +1,219 @@
+
+:root{
+    --orange: #FF9F1C;
+    --flash_red: #db0000;
+    --blue: #008394;
+    --lila:#9D00B5;
+
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.header{
+    background-color: var(--lila);
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.nav a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.nav nav{
+    display: flex;
+    align-items: center;
+}
+
+.nav nav a{
+    margin: 0 10px;
+    border: 1px solid var(--orange);
+    background-color: var(--orange);
+    padding: 3px 7px;
+    border-radius: 5px;
+}
+.nav nav a:hover{
+    
+    transform: scale(1.1 );
+    transition: all 0.3s ease-in-out;
+    background-color: #fdaa35;
+    
+}
+.nav h1{
+    background-image: linear-gradient(to left, var(--orange), #fdbd45);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.nav nav span{
+    margin: 0 10px 0 0;
+    color: rgb(0, 0, 0);
+    text-transform: capitalize;
+    font-weight: 600;
+    padding: 5px;
+}
+.nav img{
+    width: 45px;
+    height: 45px;
+}
+/*Content*/
+.content{
+    max-width: 85%;
+    margin: 10px auto;
+}
+
+.content header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+/* Mensaje de Flahs*/
+.flash{
+    background-color: var(--flash_red);
+    color: #fff;
+    padding: 10px;
+}
+
+/*Index - Publicaciones*/
+article{
+    padding: 10px 0;
+}
+
+article header{
+    margin: 10px 0;
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+}
+
+article header h1{
+    font-size: 26px;
+}
+
+article header .about{
+    font-style: italic;
+    color: #707070;
+    font-size: 18px;
+}
+
+/*Formularios*/
+form{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+form label, input, textarea{
+    font-weight: 500;
+    margin: 5px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    padding: 10px; 
+}
+
+form input[type=submit]{
+    align-self: start;
+    min-width: 200px;
+}
+
+/* LOGIN & SINGIN*/
+.login{
+    max-width: 30%;
+    margin: 0 auto;
+}
+
+.login input[type=submit]{
+    margin: 10px 0;
+    min-width: 100%;
+    background-color: var(--orange);
+    border: none;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+}
+
+.login input[type=submit]:hover{
+    background-color: rgb(177, 85, 0);
+    cursor: pointer;
+    color:white;
+    transform: scale3d(1.1, 1.1, 1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Botones editar/eliminar y agregar*/
+.create .save{ /*Boton GUARDAR*/
+
+    background-color: var(--orange);
+    border: none;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    margin: 10px 0;
+    min-width: 100%;
+}
+.create .save:hover{
+    background-color: rgb(177, 85, 0);
+    cursor: pointer;
+    color:white;
+    transform: scale3d(1.1, 1.1, 1.1);
+    transition: all 0.3s ease-in-out;
+}
+.crud-btn a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    margin: 0 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.crud-btn .edit{
+    background-color: var(--blue);
+    color: white;
+}
+
+.crud-btn .delete{
+    background-color: rgb(172, 0, 0);
+    color: white;
+}
+.crud-btn .edit:hover{
+    transform: scale(1.1 );
+    transition: all 0.3s ease-in-out;
+    background-color: #00cfeb;
+}
+.crud-btn .delete:hover{
+    transform: scale(1.1 );
+    transition: all 0.3s ease-in-out;
+    background-color: #ff1919;
+}
+
+.new {
+    text-decoration: none;
+    margin: 0 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--orange);
+    color: white;
+}
+
+.new:hover{
+    transform: scale(1.1 );
+    transition: all 0.3s ease-in-out;
+    background-color: #ffde23;
+}

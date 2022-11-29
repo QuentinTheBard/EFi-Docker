@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block header %}
+    <h2>{% block title %}Publicaciones {% endblock %}</h2>
+    {% if g.user %}
+        <a class='new' href="{{ url_for('create') }}">➕</a>
+    {% endif%}
+{% endblock %}
+
+{% block content %}
+
+{% for post in posts %}
+    <article>
+        <header>
+            <div>
+               <h1>{{ post.title }}</h1>
+                <div class="about">
+                    Publicado por {{ get_user(post.author).username}}
+                    el {{ post.created.strftime('%Y-%m-%d') }}
+                </div> 
+            </div>
+            <div class="crud-btn">
+                {% if g.user.id == post.author %}
+                    <a class='edit' href="{{ url_for('update', id=post.id) }}">🖋</a>
+                    <a class='delete' href="{{ url_for('delete', id=post.id) }}">✖</a>
+                {% endif %}
+            </div>
+        </header>
+        <div>
+            <p>{{ post.body }}</p>
+        </div>
+    </article>
+{% endfor %}
+
+{% endblock %}
