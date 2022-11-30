@@ -13,22 +13,14 @@ import os
 
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = 'clave_secreta'
+
+MYSQL_HOST = os.environ.get('MYSQL_HOST', '143.198.156.171') 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://BD2021:BD2021itec@'+MYSQL_HOST+'/blog_python'
+app.config["SECRET_KEY"] = "acalepongoloquequiera"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
+app.config["pydev_do_not_trace"] = True
 
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/blog_python'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@db/blog_python'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://flask:slimdingo85@flask/blog_python'
-# app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql+pymysql://flask:slimdingo85@localhost/blog_python'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://flask:slimdingo85@flask/blog_python'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{}:{}@{}/{}'.format(
-#     os.getenv('DB_USER', 'root'),
-#     os.getenv('DB_PASSWORD', ''),
-#     os.getenv('DB_HOST', 'mysql'),
-#     os.getenv('DB_NAME', 'blog_python')
-# )
 db=SQLAlchemy(app)
 
 
